@@ -39,6 +39,7 @@ composer require laravel/boost --dev
 php artisan boost:install
 ```
 
+
 Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
 
 ## Contributing
@@ -64,18 +65,21 @@ Project ini adalah aplikasi Sistem Pengaduan Kampus menggunakan Laravel dengan f
 
 ---
 
-#  Cara Menjalankan Project
+##  Cara Menjalankan Project
 
-## 1. Clone Repository
-```bash
+1. Clone Repository
+
 git clone https://github.com/KoharuKoval/uaspbw-pengaduan-kampus.git
 cd uaspbw-pengaduan-kampus
+
 2. Install Dependency
 composer install
 npm install
+
 3. Setup Environment
 cp .env.example .env
 php artisan key:generate
+
 4. Konfigurasi Database
 
 Buat database baru (contoh: pengaduan_kampus)
