@@ -41,6 +41,74 @@ php artisan boost:install
 
 Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
 
+## SETUP
+# Sistem Pengaduan Kampus (Laravel)
+
+Project ini adalah aplikasi Sistem Pengaduan Kampus menggunakan Laravel dengan fitur autentikasi, role admin (Spatie Permission), dan manajemen pengaduan.
+
+---
+
+#  Cara Menjalankan Project
+
+## 1. Clone Repository
+```bash
+git clone https://github.com/KoharuKoval/uaspbw-pengaduan-kampus.git
+cd uaspbw-pengaduan-kampus
+2. Install Dependency
+composer install
+npm install
+3. Setup Environment
+cp .env.example .env
+php artisan key:generate
+4. Konfigurasi Database
+
+Buat database baru (contoh: pengaduan_kampus)
+
+Lalu ubah file .env:
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pengaduan_kampus
+DB_USERNAME=root
+DB_PASSWORD=
+5. Jalankan Migration
+php artisan migrate
+
+> SETUP ADMIN
+
+Karena admin dibuat secara manual saat development, maka lakukan langkah berikut:
+
+Masuk Tinker
+php artisan tinker
+Jalankan kode berikut:
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+$user = User::create([
+    'name' => 'Admin',
+    'email' => 'admin@kampus.ac.id',
+    'password' => Hash::make('admin#123'),
+]);
+
+$user->assignRole('admin');
+Login Admin
+Email    : admin@kampus.ac.id
+Password : admin#123
+Menjalankan Aplikasi
+
+Jalankan server Laravel:
+
+php artisan serve
+
+Jalankan frontend asset:
+
+npm run dev
+
+Akses di browser:
+
+http://127.0.0.1:8000
+
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
